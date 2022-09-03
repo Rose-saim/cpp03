@@ -36,6 +36,7 @@ private:
 	unsigned int			attackDamage;
 public:
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap const &copy);
 	ClapTrap(std::string name, unsigned int hitpoint, unsigned int energyPoint, unsigned int attackPoint);
 	~ClapTrap();
 	ClapTrap& operator=(ClapTrap const &other);

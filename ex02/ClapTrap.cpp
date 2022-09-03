@@ -3,27 +3,27 @@
 
 ClapTrap::ClapTrap(std::string name):name(name)
 {
-	std::cout << COLOR(CYAN, this->name)  << COLOR(CYAN, ": Constructor is called !") << std::endl;
+	std::cout << COLOR(CYAN, this->name)  << COLOR(CYAN, ": Constructor is called ! CLAP !!") << std::endl;
 	this->hitPoint=10;
 	this->energyPoint=10;
 	this->attackDamage=0;
 }
 
-ClapTrap::ClapTrap(std::string name, unsigned int hitP		oint, unsigned int energyPoint, unsigned int attackPoint):
+ClapTrap::ClapTrap(std::string name, unsigned int hitPoint, unsigned int energyPoint, unsigned int attackPoint):
 					name(name), hitPoint(hitPoint), energyPoint(energyPoint), attackDamage(attackPoint)
 {
-	std::cout << COLOR(CYAN, this->name)  << COLOR(CYAN, ": Constructor param2 is called !") << std::endl;
+	std::cout << COLOR(CYAN, this->name)  << COLOR(CYAN, ": Constructor param2 is called ! CLAP !!") << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &copy)
 {
-	std::cout <<  this->name << ": Copy Constructor is called !" << std::endl;
+	std::cout <<  COLOR(CYAN, this->name) << COLOR(CYAN, ": Copy Constructor is called ! CLAP !!") << std::endl;
 	*this = copy;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << this->name << ": Destructor is called !" << std::endl;
+	std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": Destructor is called ! CLAP !!") << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap const &other)
@@ -41,14 +41,14 @@ ClapTrap& ClapTrap::operator=(ClapTrap const &other)
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->energyPoint == 0)
+	if (this->energyPoint >= 0)
 	{
-		std::cout << COLOR(RED, this->name) << COLOR(RED, ": doesn't have enough energy.") << std::endl;
+		std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": doesn't have enough energy.") << std::endl;
 		return ;
 	}
 	this->energyPoint -= 1;
-	std::cout << COLOR(RED, this->name) << COLOR(RED, ": use 1 energy point.") << std::endl;
-	std::cout << COLOR(RED, this->name) << COLOR(RED, ": attacks, " << target) << std::endl;
+	std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": use 1 energy point.") << std::endl;
+	std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": attacks, " << target) << std::endl;
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
@@ -56,21 +56,21 @@ void ClapTrap::takeDamage(unsigned int amount)
 		amount = this->hitPoint;
 	this->hitPoint -= amount;
 	if (this->hitPoint == 0)
-		std::cout << COLOR(GRN, this->name) << COLOR(GRN, ": is dead !") << std::endl;
+		std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": is dead !") << std::endl;
 	else
 	{
-		std::cout << COLOR(GRN, this->name) << COLOR(GRN, ": receives ") << COLOR(GRN, amount) << COLOR(GRN," damage.")<< std::endl;
-		std::cout << COLOR(GRN, this->name) << COLOR(GRN, ": has ")  << COLOR(GRN, this->hitPoint)  << COLOR(GRN," hitPoints !")<< std::endl;
+		std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": receives ") << COLOR(CYAN, amount) << COLOR(CYAN," damage.")<< std::endl;
+		std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": has ")  << COLOR(CYAN, this->hitPoint)  << COLOR(CYAN," hitPoints !")<< std::endl;
 	}
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->energyPoint == 0)
 	{
-		std::cout << COLOR(YEL, this->name) << COLOR(YEL, ": doesn't have enough energy.") << COLOR(YEL, amount) << std::endl;
+		std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": doesn't have enough energy.") << COLOR(CYAN, amount) << std::endl;
 		return ;
 	}
-	std::cout << COLOR(YEL, this->name) << COLOR(YEL, ": use 1 energy point and gain") << COLOR(YEL, amount) << std::endl;
+	std::cout << COLOR(CYAN, this->name) << COLOR(CYAN, ": use 1 energy point and gain") << COLOR(CYAN, amount) << std::endl;
 	this->energyPoint -= 1;
 	this->hitPoint += 1;
 }

@@ -1,10 +1,11 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 int main()
 {
-	ClapTrap t1("Gre");
-	ScavTrap t2("Max");
-	ClapTrap t3(t2);
+	ClapTrap t1("Clap");
+	ScavTrap t2("Scav");
+	FragTrap t3("Frag");
 	ScavTrap t4;
 	unsigned int	damage;
 	while (t1.GetHit() > 0 || t2.GetHit() > 0 || t3.GetHit() > 0|| t4.GetHit() > 0)
@@ -39,6 +40,7 @@ int main()
 			return (0);
 		}
 		t3.attack(t4.GetName());
+		t3.highFivesGuys();
 		std::cout << COLOR(BLU, "How much damage does ") << COLOR(BLU,t4.GetName()) << COLOR(BLU," do ?");
 		std::cin >> damage;
 		if (std::cin.fail())
