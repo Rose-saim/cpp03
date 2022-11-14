@@ -32,7 +32,7 @@ class ClapTrap
 private:
 	std::string	name;
 	unsigned int			hitPoint;
-	unsigned int			energyPoint;
+	int			energyPoint;
 	unsigned int			attackDamage;
 public:
 	ClapTrap(std::string name);

@@ -45,7 +45,7 @@ int main()
 		std::cin >> damage;
 		if (std::cin.fail())
 			return (2);
-			t2.takeDamage(damage);
+		t2.takeDamage(damage);
 		if (t4.GetHit() < 20)
 			t4.guardGate();
 		t4.takeDamage(damage);
@@ -62,7 +62,7 @@ int main()
 		std::cin >> damage;
 		if (std::cin.fail())
 			return (2);
-			t2.takeDamage(damage);
+		t2.takeDamage(damage);
 		t3.takeDamage(damage);
 		if (t3.GetHit() == 0)
 		{
